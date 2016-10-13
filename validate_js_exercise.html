@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>THIS IS VALIDATE HTML</title>
+    <style>
+      *{
+        margin:0;
+          padding:0;
+      }
+      body{
+        font-family: "Open Sans"
+        font-size: 14px;
+      }
+      .container{
+        width:500px;
+          margin:25px auto;
+      }
+      fomr{
+        padding:20px;
+        bakcground:#2c3e50;
+      }
+      form label, form input, form button{
+        border:0;
+        margin-bottom:3px;
+        display:block;
+        width:100%;
+      }
+      form input {
+        height:25px;
+        line-height:25px;
+        background:#fff;
+        color:#000;
+          padding:0 6px;
+        -moz-box-sizing:border-box:
+          -wekkit-box-sizing:border-box;
+            box-sizing:border-box;
+      }
+      form button{
+        height:30px;
+        line-height:30px;
+        background:#e67e22;
+        color:#fff;
+        margin-top:10px;
+        cursor:pointer;
+      }
+      form .error{
+        color:#ff0000;
+      }
+   </style>
+    <script src="jquery-3.1.1.min.js"></script>
+    <script src="jquery-validate.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Registration</h2>
+      <form action="" name="registration">
+        <label for="firstname">First Name</label>
+        <input type="text" name="firstname" id="firstname" placeholder="John" />
+
+        <label for="lastname">Lase Name</label>
+        <input type="text" name="lastname" id="lastname" placeholder="Doe" />
+
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" placeholder="john@doe.com"  />
+
+
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;"  />
+
+        <button type="submit">Register</button>
+      </form>
+    </div>
+    <script>
+$(function(){
+  $('form[name="registration"]').validate({
+    rules:{
+      firstname: "required",
+      lastname: "required",
+      email:{
+        required: true,
+        email:true
+      },
+      password:{
+        required:true,
+        minlenght:5
+      }
+    },
+    messages:{
+      firstname: "place enter your firstname",
+      lastname: "please enter your lastname",
+      password: {
+        required:"please provide a password",
+        minlength:"your password must be at least 5 characters long"
+      },
+      email: "please enter a vaild email address"
+    },
+    submitHandler: function(form){
+      form.submit();
+    }
+  })
+})
+    </script>
+  </body>
+</html>
+
+
